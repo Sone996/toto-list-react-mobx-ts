@@ -12,19 +12,19 @@ const ListComponent: FC = observer(() => {
     todoStore.ItemList();
   }, [todoStore]);
 
-  if(todoStore?.todoList.length === 0) {
+  if (todoStore?.todoList.length === 0) {
     return (
       <div className="relative flex flex-grow">
         <span className="text-white text-3xl">...loading</span>
       </div>
-    )
+    );
   }
 
   return (
     <div className="relative flex flex-grow">
       <Scroll>
         <div>
-          {todoStore.todoList.map((item: item) => (
+          {todoStore.getTodoList.map((item: item) => (
             <div key={item.id}>
               <ListItem
                 title={item.title}

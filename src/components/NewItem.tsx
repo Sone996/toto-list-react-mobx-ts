@@ -25,10 +25,9 @@ const NewItem: FC = () => {
   };
 
   return (
-    // <div>New Item</div>
     <Card bg="bg-lightGray">
       <div className="flex flex-col p-2 bg-lightGray my-4">
-        <span>Title: </span>
+        <span>Task: </span>
         <input
           className="input"
           type="text"
@@ -36,17 +35,8 @@ const NewItem: FC = () => {
           value={form.title}
           onChange={inputHandler}
         />
-        <span>Description: </span>
-        <input
-          className="input"
-          type="text"
-          name="body"
-          value={form.body}
-          onChange={inputHandler}
-        />
         <div className="flex w-1/12 my-2">
           <span className="bg-lightBlue button" onClick={addItem}>
-            {/* onClick={forEdit.title.length > 0 ? editItemHandler : addItem} */}
             Add
           </span>
         </div>

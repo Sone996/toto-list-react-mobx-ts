@@ -73,6 +73,8 @@ export class ToDoStore {
       .editItem(data)
       .then((res) => {
         console.log(res);
+        alert("Item Edited")
+        this.ItemList();
       })
       .catch((err) => {
         console.log(err);
