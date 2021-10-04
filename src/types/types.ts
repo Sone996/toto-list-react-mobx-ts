@@ -4,3 +4,9 @@ export interface item {
   title: string;
   completed: boolean;
 }
+
+export interface INewItemForm {
+  userId: number;
+  title: string;
+  body: string;
+}

@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useHistory, Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const Navigation: FC = () => {
   const history = useHistory();

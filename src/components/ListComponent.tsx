@@ -1,35 +1,30 @@
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import { observer } from "mobx-react-lite";
 import ListItem from "./ListItem";
 import Scroll from "./UI/Scroll";
 import { item } from "../types/types";
+import { UserRootStore } from "../store";
 
-const data: any = [
-  {
-    userId: 1,
-    id: 1,
-    title: "delectus aut autem",
-    completed: false,
-  },
-  {
-    userId: 1,
-    id: 2,
-    title: "quis ut nam facilis et officia qui",
-    completed: false,
-  },
-  {
-    userId: 1,
-    id: 3,
-    title: "fugiat veniam minus",
-    completed: false,
-  },
-];
+const ListComponent: FC = observer(() => {
+  const { todoStore } = UserRootStore();
 
-const ListComponent: FC = () => {
+  useEffect(() => {
+    todoStore.ItemList();
+  }, [todoStore]);
+
+  if(todoStore?.todoList.length === 0) {
+    return (
+      <div className="relative flex flex-grow">
+        <span className="text-white text-3xl">...loading</span>
+      </div>
+    )
+  }
+
   return (
     <div className="relative flex flex-grow">
       <Scroll>
         <div>
-          {data.map((item: item) => (
+          {todoStore.todoList.map((item: item) => (
             <div key={item.id}>
               <ListItem
                 title={item.title}
@@ -42,6 +37,6 @@ const ListComponent: FC = () => {
       </Scroll>
     </div>
   );
-};
+});
 
 export default ListComponent;

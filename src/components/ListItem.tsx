@@ -1,14 +1,17 @@
 import { FC } from "react";
 import Card from "./UI/Card";
 import { item } from "../types/types";
+import { UserRootStore } from "../store";
 
 const ListItem: FC<item> = ({ title, completed, id }) => {
+  const { todoStore } = UserRootStore();
+
   const deleteItem = () => {
-    console.log("sksksksskskks");
+    todoStore.deleteItem(id);
   };
 
   const editItem = () => {
-    console.log("edit");
+    todoStore.setForEdit({ completed: true, title: title, id: id });
   };
 
   return (
