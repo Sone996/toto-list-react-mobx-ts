@@ -1,10 +1,10 @@
 import { FC } from "react";
 import Card from "./UI/Card";
 import { item } from "../types/types";
-import { UserRootStore } from "../store";
+import { RootStore } from "../store";
 
 const ListItem: FC<item> = ({ title, completed, id }) => {
-  const { todoStore } = UserRootStore();
+  const { todoStore } = RootStore();
 
   const deleteItem = () => {
     todoStore.deleteItem(id);
@@ -22,7 +22,7 @@ const ListItem: FC<item> = ({ title, completed, id }) => {
       </span>
       <div className="flex justify-end">
         <span className="button bg-lightBlue" onClick={editItem}>
-          Edit
+          Finish
         </span>
         <span className="button bg-darkRed ml-3" onClick={deleteItem}>
           Delete

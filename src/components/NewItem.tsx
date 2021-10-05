@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { UserRootStore } from "../store";
+import { RootStore } from "../store";
 import Card from "./UI/Card";
 
 const defaultForm = {
@@ -9,7 +9,7 @@ const defaultForm = {
 };
 
 const NewItem: FC = () => {
-  const { todoStore } = UserRootStore();
+  const { todoStore } = RootStore();
   const [form, setForm] = useState(defaultForm);
 
   const inputHandler = (event: React.ChangeEvent<HTMLInputElement>) => {

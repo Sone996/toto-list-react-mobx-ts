@@ -3,10 +3,12 @@ import { observer } from "mobx-react-lite";
 import ListItem from "./ListItem";
 import Scroll from "./UI/Scroll";
 import { item } from "../types/types";
-import { UserRootStore } from "../store";
+import { RootStore } from "../store";
 
 const ListComponent: FC = observer(() => {
-  const { todoStore } = UserRootStore();
+  const { todoStore } = RootStore();
+
+  console.log(todoStore);
 
   useEffect(() => {
     todoStore.ItemList();

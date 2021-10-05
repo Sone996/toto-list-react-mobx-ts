@@ -19,4 +19,4 @@ export const RootStateProvider: FC<PropsWithChildren<{}>> = ({ children }) => {
   );
 };
 
-export const UserRootStore = () => useContext(RootStateContext);
+export const RootStore = () => useContext(RootStateContext);

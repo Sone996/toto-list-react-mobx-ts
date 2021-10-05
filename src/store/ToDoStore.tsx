@@ -1,16 +1,21 @@
 import {
-  action,
+  // action,
   // configure,
   makeAutoObservable,
-  observable,
+  // observable,
   runInAction,
 } from "mobx";
 import { INewItemForm, item } from "../types/types";
 import { toDoService } from "./services/ToDoStore.service";
 
+// configure({
+//   useProxies: "never"
+// })
+
 export class ToDoStore {
   // STATE
-  @observable todoList: item[] = [];
+  // @observable todoList: item[] = [];
+  todoList: item[] = [];
   // END :: STATE
 
   constructor() {
@@ -24,7 +29,7 @@ export class ToDoStore {
   // END :: COMPUTED
 
   // ACTIONS
-  @action
+  // @action
   ItemList = async () => {
     toDoService
       .fetchToDo()
@@ -38,7 +43,7 @@ export class ToDoStore {
       });
   };
 
-  @action
+  // @action
   addItem = async (data: INewItemForm) => {
     toDoService
       .addItem(data)
@@ -53,7 +58,7 @@ export class ToDoStore {
       });
   };
 
-  @action
+  // @action
   deleteItem = async (data: number) => {
     toDoService
       .deleteItem(data)
@@ -67,13 +72,13 @@ export class ToDoStore {
       });
   };
 
-  @action
+  // @action
   setForEdit = async (data: any) => {
     toDoService
       .editItem(data)
       .then((res) => {
         console.log(res);
-        alert("Item Edited")
+        alert("Item Finished")
         this.ItemList();
       })
       .catch((err) => {
